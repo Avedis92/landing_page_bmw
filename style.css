@@ -139,6 +139,21 @@ nav {
     }
   }
 }
+.auto-play-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  & > button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+}
+.fa-play,
+.fa-pause {
+  font-size: 1.5rem;
+  color: #494949;
+}
 
 .learn-more-wrapper {
   position: absolute;
