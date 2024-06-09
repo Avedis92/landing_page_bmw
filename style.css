@@ -343,3 +343,38 @@ nav {
     }
   }
 }
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 3rem;
+  color: #494949;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  & > span {
+    display: block;
+    color: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    line-height: 1.21;
+  }
+}
+.footer-links--social-media {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 2rem;
+  align-self: flex-start;
+}
+.fa-facebook,
+.fa-twitter,
+.fa-instagram,
+.fa-youtube,
+.fa-linkedin {
+  font-size: 2rem;
+  cursor: pointer;
+}
