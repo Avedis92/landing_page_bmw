@@ -5,6 +5,9 @@ const selectorButtons = document.querySelectorAll(".selector-button");
 const learnMoreWrappers = document.querySelectorAll(".learn-more-wrapper");
 const playButton = document.querySelector(".play-button");
 const pauseButton = document.querySelector(".pause-button");
+const openMenuButton = document.querySelector(".open-menu-button");
+const closeMenuButton = document.querySelector(".close-menu-button");
+const menu = document.querySelector(".menu-wrapper--collapsed");
 
 let index = 0;
 let timerId;
@@ -57,4 +60,20 @@ pauseButton.addEventListener("click", () => {
   playButton.style.display = "block";
   pauseButton.style.display = "none";
   clearInterval(timerId);
+});
+
+// open-close menu functionality
+
+closeMenuButton.style.display = "none";
+closeMenuButton.addEventListener("click", () => {
+  openMenuButton.style.display = "inline-block";
+  closeMenuButton.style.display = "none";
+  menu.classList.remove("menu-wrapper--expanded");
+  menu.classList.toggle("menu-wrapper--collapsed");
+});
+openMenuButton.addEventListener("click", () => {
+  openMenuButton.style.display = "none";
+  closeMenuButton.style.display = "inline-block";
+  menu.classList.remove("menu-wrapper--collapsed");
+  menu.classList.toggle("menu-wrapper--expanded");
 });
