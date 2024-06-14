@@ -1,0 +1,29 @@
+.glance {
+  background: #f2f2f2;
+  color: #494949;
+  padding: 4.5rem 3rem;
+}
+.glance__grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 2.5rem 1rem;
+  width: 100%;
+  margin-top: 2.5rem;
+}
+.glance__grid {
+  background: #fff;
+  & > img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+    transition: scale 0.5s ease-in-out;
+    &:hover {
+      scale: 1.02;
+    }
+  }
+  & > p {
+    padding: 1rem;
+    font-weight: bold;
+  }
+}

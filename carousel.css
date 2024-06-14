@@ -1,0 +1,164 @@
+.carousel {
+  height: auto;
+  display: block;
+}
+.carousel__container {
+  position: relative;
+}
+
+.slide {
+  position: relative;
+  display: none;
+  width: 100%;
+}
+.slide[data-active] {
+  display: block;
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 99;
+    inset: 0;
+    background: #000;
+    opacity: 0.4;
+  }
+}
+
+.slide__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.button-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 100;
+  background: none;
+  border: none;
+  color: #fff;
+  width: fit-content;
+  height: fit-content;
+  font-weight: bold;
+  cursor: pointer;
+  & .fa-chevron-right,
+  .fa-chevron-left {
+    font-size: 3rem;
+    color: #494949;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+.previous {
+  left: 2rem;
+}
+.next {
+  right: 2rem;
+}
+
+.index-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 2.25rem;
+  & > button {
+    min-width: 6rem;
+    height: 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    &:hover {
+      background: #6f6f6f;
+    }
+  }
+}
+.auto-play-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  & > .carousel-counter {
+    display: none;
+  }
+  & > button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+}
+.fa-play,
+.fa-pause {
+  font-size: 1.5rem;
+  color: #494949;
+}
+
+.learn-more-wrapper {
+  position: absolute;
+  top: 4.5rem;
+  left: 6rem;
+  & > h2 {
+    color: #fff;
+    font-size: 2rem;
+  }
+  & > p {
+    color: #fff;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+  }
+  & > div {
+    background: #d6d6d6;
+    color: #494949;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 1rem 1.75rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    width: 20rem;
+    & > span {
+      font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    aspect-ratio: 0.95;
+    border: 2px solid red;
+  }
+  .carousel__container,
+  .slide,
+  .slide__image {
+    height: 100%;
+  }
+
+  .index-selector {
+    display: none;
+  }
+  .auto-play-wrapper {
+    position: relative;
+    margin-top: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > .carousel-counter {
+      display: inline-block;
+      & > .fa-chevron-left,
+      & > .fa-chevron-right {
+        cursor: pointer;
+        font-size: 1.25rem;
+      }
+      & > span {
+        font-size: 1.25rem;
+        margin: 0 1.25rem;
+      }
+    }
+    & > button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+    }
+  }
+}
