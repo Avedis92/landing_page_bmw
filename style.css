@@ -137,8 +137,11 @@ nav {
 }
 
 @media (max-width: 400px) {
-  .link-section_menu-wrapper > span {
-    display: none;
+  .link-section_menu-wrapper {
+    margin-right: 0.75rem;
+    & > span {
+      display: none;
+    }
   }
 }
 @media (max-width: 600px) {

@@ -122,14 +122,9 @@
 }
 
 @media (max-width: 600px) {
-  .carousel {
-    aspect-ratio: 0.95;
-    border: 2px solid red;
-  }
-  .carousel__container,
-  .slide,
   .slide__image {
-    height: 100%;
+    aspect-ratio: 0.9;
+    width: 100%;
   }
 
   .index-selector {
@@ -158,7 +153,10 @@
       background: none;
       cursor: pointer;
       position: absolute;
-      right: 0;
+      right: 0.75rem;
     }
+  }
+  .learn-more-wrapper {
+    left: 1rem;
   }
 }
