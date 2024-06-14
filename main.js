@@ -22,8 +22,8 @@ learnMoreWrappers[index].style.zIndex = 100;
 pauseButton.style.display = "none";
 selectorButtons.forEach((b, i) => {
   b.addEventListener("click", () => {
-    selectorButtons[index].style.background = "#d6d6d6";
     delete images[index].dataset.active;
+    selectorButtons[index].style.background = "#d6d6d6";
     learnMoreWrappers[index].style.zIndex = 0;
     index = i;
     b.style.background = "#6f6f6f";
@@ -39,9 +39,9 @@ prevButton.addEventListener("click", () => {
   if (previousIndex === -1) {
     previousIndex = index = images.length - 1;
   }
+  selectorButtons[previousIndex].style.background = "#6f6f6f";
   images[previousIndex].dataset.active = true;
   learnMoreWrappers[previousIndex].style.zIndex = 100;
-  selectorButtons[previousIndex].style.background = "#6f6f6f";
 });
 nextButton.addEventListener("click", () => {
   delete images[index].dataset.active;
@@ -51,9 +51,9 @@ nextButton.addEventListener("click", () => {
   if (nextIndex === images.length) {
     nextIndex = index = 0;
   }
+  selectorButtons[nextIndex].style.background = "#6f6f6f";
   images[nextIndex].dataset.active = true;
   learnMoreWrappers[nextIndex].style.zIndex = 100;
-  selectorButtons[nextIndex].style.background = "#6f6f6f";
 });
 playButton.addEventListener("click", () => {
   playButton.style.display = "none";
@@ -94,16 +94,32 @@ carouselCounterNextButton.addEventListener("click", () => {
 
 // open-close menu functionality
 
+const updateMenu = (
+  openMenuStyle,
+  closeMenuStyle,
+  removedMenuClass,
+  toggledMenuClass
+) => {
+  openMenuButton.style.display = openMenuStyle;
+  closeMenuButton.style.display = closeMenuStyle;
+  menu.classList.remove(removedMenuClass);
+  menu.classList.toggle(toggledMenuClass);
+};
+
 closeMenuButton.style.display = "none";
 closeMenuButton.addEventListener("click", () => {
-  openMenuButton.style.display = "inline-block";
-  closeMenuButton.style.display = "none";
-  menu.classList.remove("menu-wrapper--expanded");
-  menu.classList.toggle("menu-wrapper--collapsed");
+  updateMenu(
+    "inline-block",
+    "none",
+    "menu-wrapper--expanded",
+    "menu-wrapper--collapsed"
+  );
 });
 openMenuButton.addEventListener("click", () => {
-  openMenuButton.style.display = "none";
-  closeMenuButton.style.display = "inline-block";
-  menu.classList.remove("menu-wrapper--collapsed");
-  menu.classList.toggle("menu-wrapper--expanded");
+  updateMenu(
+    "none",
+    "inline-block",
+    "menu-wrapper--collapsed",
+    "menu-wrapper--expanded"
+  );
 });
