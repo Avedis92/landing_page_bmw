@@ -8,7 +8,13 @@ const pauseButton = document.querySelector(".pause-button");
 const openMenuButton = document.querySelector(".open-menu-button");
 const closeMenuButton = document.querySelector(".close-menu-button");
 const menu = document.querySelector(".menu-wrapper--collapsed");
-
+const carouselCounterPreviousButton = document.querySelector(
+  ".carousel-counter-previous-button"
+);
+const carouselCounterNextButton = document.querySelector(
+  ".carousel-counter-next-button"
+);
+const carouselCount = document.querySelector(".carousel-count");
 let index = 0;
 let timerId;
 selectorButtons[index].style.background = "#6f6f6f";
@@ -60,6 +66,30 @@ pauseButton.addEventListener("click", () => {
   playButton.style.display = "block";
   pauseButton.style.display = "none";
   clearInterval(timerId);
+});
+
+carouselCounterPreviousButton.addEventListener("click", () => {
+  delete images[index].dataset.active;
+  learnMoreWrappers[index].style.zIndex = 0;
+  let previousIndex = --index;
+  if (previousIndex === -1) {
+    previousIndex = index = images.length - 1;
+  }
+  images[previousIndex].dataset.active = true;
+  learnMoreWrappers[previousIndex].style.zIndex = 100;
+  carouselCount.innerHTML = `${previousIndex + 1}/3`;
+});
+
+carouselCounterNextButton.addEventListener("click", () => {
+  delete images[index].dataset.active;
+  learnMoreWrappers[index].style.zIndex = 0;
+  let nextIndex = ++index;
+  if (nextIndex === images.length) {
+    nextIndex = index = 0;
+  }
+  images[nextIndex].dataset.active = true;
+  learnMoreWrappers[nextIndex].style.zIndex = 100;
+  carouselCount.innerHTML = `${nextIndex + 1}/3`;
 });
 
 // open-close menu functionality

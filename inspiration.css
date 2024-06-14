@@ -1,0 +1,43 @@
+.inspiration {
+  color: #494949;
+  padding: 4.5rem 3rem;
+}
+.inspiration__grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 2.5rem 1rem;
+  width: 100%;
+  margin-top: 2.5rem;
+}
+.inspiration__grid {
+  position: relative;
+  cursor: pointer;
+  transition: scale 0.5s ease-in-out;
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 9;
+    inset: 0;
+    background: #000;
+    opacity: 0.3;
+  }
+  & > h2 {
+    position: absolute;
+    color: #fff;
+    inset: 0;
+    z-index: 10;
+    padding: 1.5rem;
+    border: 2px solid #fff;
+    font-size: 2rem;
+  }
+  & > img {
+    width: 100%;
+    aspect-ratio: 1;
+    cursor: pointer;
+    object-fit: cover;
+    object-position: center;
+  }
+  &:hover {
+    scale: 1.02;
+  }
+}

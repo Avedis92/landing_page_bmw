@@ -1,0 +1,133 @@
+.current-topics {
+  color: #494949;
+  padding: 4.5rem 3rem;
+  background: #f2f2f2;
+}
+.current-topics__grid-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  gap: 2rem;
+  grid-auto-rows: minmax(10rem, auto);
+  margin-top: 2.5rem;
+}
+
+.current-topics__grid-content--extended,
+.current-topics__grid-content--extended--reversed {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+  grid-column: span 3;
+}
+.current-topics__grid-content--extended--reversed {
+  flex-direction: row-reverse;
+}
+
+.current-topics__image-wrapper,
+.current-topics__image-wrapper--extended {
+  & > img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.5;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+.current-topics__image-wrapper--extended {
+  min-width: 65%;
+}
+.current-topics__text-wrapper,
+.current-topics__text-wrapper--extended,
+.current-topics__text-wrapper--extended--reversed {
+  display: block;
+  margin-top: 1rem;
+  width: fit-content;
+  & > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    & > span {
+      color: inherit;
+      font-size: 1rem;
+    }
+    & > span:nth-child(even) {
+      padding: 0 0.5rem;
+      border-right: 2px solid #494949;
+      border-left: 2px solid #494949;
+      margin: 0 0.5rem;
+    }
+  }
+  & > h2 {
+    line-height: 1.1;
+    color: inherit;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  & > p {
+    color: inherit;
+    line-height: 1.25rem;
+    font-size: 1rem;
+  }
+}
+.current-topics__text-wrapper--extended,
+.current-topics__text-wrapper--extended--reversed {
+  margin-top: 0;
+}
+.current-topics__text-wrapper--extended--reversed {
+  text-align: end;
+  & > div {
+    justify-content: flex-end;
+  }
+}
+.main-title {
+  font-size: 2rem;
+}
+.read-more {
+  margin-top: 2.5rem;
+  background: #d6d6d6;
+  color: #494949;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem 1rem 1.75rem;
+  cursor: pointer;
+  width: 20rem;
+  & > span {
+    font-weight: bold;
+  }
+  &:hover {
+    background: #000;
+    color: #fff;
+  }
+}
+
+@media (max-width: 768px) {
+  .current-topics {
+    padding: 4.5rem 0;
+  }
+  .current-topics__grid-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    gap: 1rem;
+    grid-auto-rows: minmax(10rem, auto);
+    margin-top: 2.5rem;
+  }
+  .current-topics__grid-content--extended {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+    flex-wrap: wrap;
+    grid-column: span 1;
+  }
+  .current-topics__text-wrapper--extended--reversed {
+    text-align: start;
+    & > div {
+      justify-content: flex-start;
+    }
+  }
+  .button-arrow {
+    display: none;
+  }
+}
